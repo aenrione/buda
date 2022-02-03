@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Gem::Specification.new do |s|
   s.name        = 'buda'
-  s.version     = '0.1.4.0.1'
+  s.version     = '0.1.4.0.3'
   s.summary     = 'buda.com client'
   s.description = 'A simple client for buda.com api'
   s.authors     = ['Alfredo Enrione']
@@ -13,7 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'json'
   s.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  end 
+  end
   s.bindir        = 'exe'
   s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
   s.require_paths = ['lib']

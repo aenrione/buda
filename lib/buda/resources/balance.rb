@@ -3,7 +3,7 @@
 module Buda
   # for handling the total balance
   class Balance
-    attr_reader :id, :available, :amount, :frozen, :pending
+    attr_reader :id, :available, :current, :frozen, :pending
 
     def initialize(id:, available_amount:, amount:, frozen_amount:, pending_withdraw_amount:, **)
       @id = id

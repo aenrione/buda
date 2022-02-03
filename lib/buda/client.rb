@@ -6,6 +6,8 @@ require 'buda/errors'
 require 'buda/constants'
 require 'buda/version'
 require 'buda/resources/balance'
+require 'buda/resources/deposit'
+require 'buda/resources/withdrawal'
 require 'buda/resources/market'
 require 'json'
 require 'net/http'
@@ -48,13 +50,15 @@ module Buda
     def balances
       result = get.call('balances', true)[:balances]
       balances = []
-      unless result.nil?
-        result.each do |balance|
-          new_balance = Balance.new(**balance)
-          balances << new_balance
-        end
+      result&.each do |balance|
+        balances << Balance.new(**balance)
       end
       balances
+    end
+
+    def get_balance(balance_id)
+      result = get.call("balances/#{balance_id}", true)[:balance]
+      Balance.new(**result)
     end
 
     def get_market(market_id)
@@ -63,6 +67,24 @@ module Buda
       new_market = Market.new(**market)
       new_market.set_ticker(**ticker)
       new_market
+    end
+
+    def deposits(currency)
+      result = get.call("currencies/#{currency}/deposits", true)[:deposits]
+      deposits = []
+      result&.each do |deposit|
+        deposits << Deposit.new(**deposit)
+      end
+      deposits
+    end
+
+    def withdrawals(currency)
+      result = get.call("currencies/#{currency}/withdrawals", true)[:withdrawals]
+      withdrawals = []
+      result&.each do |withdrawal|
+        withdrawals << Withdrawal.new(**withdrawal)
+      end
+      withdrawals
     end
 
     def to_s
