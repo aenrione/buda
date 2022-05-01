@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'buda/resources/withdrawal_data'
+require_relative 'withdrawal_data'
 
 module Buda
   # for handling the total balance

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'buda/resources/deposit_data'
+require_relative 'deposit_data'
 
 module Buda
   # for handling deposited amount

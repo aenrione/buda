@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'buda'
-  s.version     = '0.1.4.0.3'
+  s.version     = '0.1.4.0.4'
   s.summary     = 'buda.com client'
   s.description = 'A simple client for buda.com api'
   s.authors     = ['Alfredo Enrione']
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    =
     'https://rubygems.org/gems/buda'
   s.license = 'MIT'
-  s.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  s.required_ruby_version = Gem::Requirement.new('>= 2.7.3')
   s.add_dependency 'http'
   s.add_dependency 'json'
   s.files = Dir.chdir(File.expand_path(__dir__)) do
@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.bindir        = 'exe'
   s.executables   = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
   s.require_paths = ['lib']
+  s.metadata['rubygems_mfa_required'] = 'true'
 end

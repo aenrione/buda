@@ -41,7 +41,7 @@ module Buda
     # @param name [String]
     # @return [String]
     def snake_to_pascal(name)
-      name.split('_').map(&:capitalize).join('')
+      name.split('_').map(&:capitalize).join
     end
   end
 end
